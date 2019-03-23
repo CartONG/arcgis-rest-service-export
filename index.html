@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>ArcGIS Reader</title>
+  <meta name="description" content="ArcGIS Reader">
+  <meta name="author" content="CartONG">
+
+  <!-- styles -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="lib/bootstrap-4.3.1/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/leaflet/leaflet.css">
+  <link rel="stylesheet" href="lib/Leaflet.markerCluster-1.4.1/MarkerCluster.css">
+
+  <link rel="stylesheet" href="css/main.css">
+  <!-- end of styles -->
+
+</head>
+
+<body>
+  <div class="container">
+    
+    <div class="app-header">
+      <h1>Arcgis service export</h1>
+    </div>
+
+    <div class="app-content">
+
+      <div class="row">
+        <div class="col-md-6 container-input">
+
+          <h4>Service <button type="button" class="btn btn-default" id="btn-run" onclick="run()">Run</button></h4>
+          <input id="txt-input">
+
+        </div>
+        <div class="col-md-6 container-map">
+          <div id="map"></div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12 container-results">
+          <h4>Result</h4>
+          <textarea id="txt-result"></textarea>
+        </div>
+      </div>
+
+    </div>
+      
+  </div>
+  
+
+  <!-- scripts -->
+  <script src="lib/jquery/jquery-3.3.1.min.js"></script>
+  <script src="lib/bootstrap-4.3.1/bootstrap.min.js"></script>
+  <script src="lib/leaflet/leaflet.js"></script>
+  <script src="lib/Leaflet.markerCluster-1.4.1/leaflet.markercluster.js"></script>
+  <script src="lib/PapaParse-4.6.0/papaparse.min.js"></script>
+  
+  <script src="config/Config.js"></script>
+  <script src="js/Dom.js"></script>
+  <script src="js/View.js"></script>
+  <script src="js/Data.js"></script>
+  <script src="js/Map.js"></script>
+
+  <script src="js/main.js"></script>
+  <!-- end of scripts -->
+</body>
+</html>
