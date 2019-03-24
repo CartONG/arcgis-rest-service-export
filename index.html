@@ -3,12 +3,21 @@
 <head>
   <meta charset="utf-8">
 
+  <!-- bootstrap required: -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- app meta -->
   <title>ArcGIS Reader</title>
   <meta name="description" content="ArcGIS Reader">
   <meta name="author" content="CartONG">
 
+  <!-- fonts and icons -->
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:400,700' type='text/css'>
+  <link rel='stylesheet' href="lib/fontawesome-free-5.8.1-web/css/fontawesome.min.css">
+  <link rel='stylesheet' href="lib/fontawesome-free-5.8.1-web/css/brands.min.css">
+  <link rel='stylesheet' href="lib/fontawesome-free-5.8.1-web/css/solid.min.css">
+  
   <!-- styles -->
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="lib/bootstrap-4.3.1/bootstrap.min.css">
   <link rel="stylesheet" href="lib/leaflet/leaflet.css">
   <link rel="stylesheet" href="lib/Leaflet.markerCluster-1.4.1/MarkerCluster.css">
@@ -30,8 +39,17 @@
       <div class="row">
         <div class="col-md-6 container-input">
 
-          <h4>Service <button type="button" class="btn btn-default" id="btn-run" onclick="run()">Run</button></h4>
-          <input id="txt-input">
+          <label for="input-service-url"><span class="flow-step">1</span>Choose service layer</label>
+          <div class="input-group input-group-sm mb-3">
+            <!--div class="input-group-prepend">
+              <span class="input-group-text" id="service-format">https://domain.com/arcgis/rest/services/service-name/</span>
+            </div-->
+            <input id="input-service-url" type="text" class="form-control" placeholder="Please enter service URL" aria-label="Please enter service URL" aria-describedby="btn-service-request">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="btn-service-request" onclick="run()"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+
 
         </div>
         <div class="col-md-6 container-map">
@@ -53,6 +71,7 @@
 
   <!-- scripts -->
   <script src="lib/jquery/jquery-3.3.1.min.js"></script>
+  <script src="lib/popper/popper.min.js"></script>
   <script src="lib/bootstrap-4.3.1/bootstrap.min.js"></script>
   <script src="lib/leaflet/leaflet.js"></script>
   <script src="lib/Leaflet.markerCluster-1.4.1/leaflet.markercluster.js"></script>
