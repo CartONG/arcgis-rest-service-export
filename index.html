@@ -31,25 +31,71 @@
   <div class="container">
     
     <div class="app-header">
-      <h1>Arcgis service export</h1>
+      <div class="col-md-12">
+        <h1>ArcGIS REST Service export
+          <span class='float-right text-small'>
+            Developed by <img src="img/cartong_logo.png" height='30' alt='CartONG'>
+          </span>
+        </h1>
+      </div>
     </div>
 
     <div class="app-content">
 
       <div class="row">
         <div class="col-md-6 container-input">
-
-          <label for="input-service-url"><span class="flow-step">1</span>Choose service layer</label>
-          <div class="input-group input-group-sm mb-3">
-            <!--div class="input-group-prepend">
-              <span class="input-group-text" id="service-format">https://domain.com/arcgis/rest/services/service-name/</span>
-            </div-->
-            <input id="input-service-url" type="text" class="form-control" placeholder="Please enter service URL" aria-label="Please enter service URL" aria-describedby="btn-service-request">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="btn-service-request" onclick="run()"><i class="fas fa-search"></i></button>
+          
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="input-service-url">
+                  <!--span class="flow-step-number">1</span-->
+                  Service layer
+                  <span class="flow-step-explanation">| e.g.: https://gis.unhcr.org/arcgis/rest/services/core/core_prod/MapServer/6</span>
+                </label>
+                <div class="input-group input-group-sm mb-3">
+                  <!--div class="input-group-prepend">
+                    <span class="input-group-text" id="service-format">https://domain.com/arcgis/rest/services/service-name/</span>
+                  </div-->
+                  <input id="input-service-url" type="text" class="form-control" placeholder="Please enter service URL" aria-label="Please enter service URL" aria-describedby="btn-input-service-url">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="btn-input-service-url"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="input-output-format">
+                  <!--span class="flow-step-number">2</span-->
+                  Print format
+                </label>
+                <select class="custom-select custom-select-sm" id="input-output-format">
+                  <option value="json" selected>Esri JSON</option>
+                  <option value="geojson">GeoJSON</option>
+                  <option value="csv">CSV (Comma Separated Values)</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="input-output-geometry">
+                  <!--span class="flow-step-number">3</span-->
+                  Return geometry
+                </label>
+                <select class="custom-select custom-select-sm" id="input-output-geometry">
+                  <option value="true" selected>Yes</option>
+                  <option value="false">No</option>
+                </select>
+                <p class="app-warning">Please note that if you are requesting a polygon service, returning geometry might take long.</p>
+              </div>
+            </div>
+          </div>
 
         </div>
         <div class="col-md-6 container-map">
@@ -59,8 +105,21 @@
       
       <div class="row">
         <div class="col-md-12 container-results">
-          <h4>Result</h4>
-          <textarea id="txt-result"></textarea>
+            
+          <div class="form-group">
+            <label for="txt-result">Print results</label>
+            <span id="txt-result-summary" class="float-right"></span>
+            <textarea class="form-control form-control-sm" id="txt-result" rows="8" readonly></textarea>
+          </div>
+
+          <div class="btn-group float-right">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="btn-export-data" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+              Export
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" id="dropdown-export-options" aria-labelledby="btn-export-data" disabled></div>
+          </div>
+
+
         </div>
       </div>
 
@@ -76,6 +135,9 @@
   <script src="lib/leaflet/leaflet.js"></script>
   <script src="lib/Leaflet.markerCluster-1.4.1/leaflet.markercluster.js"></script>
   <script src="lib/PapaParse-4.6.0/papaparse.min.js"></script>
+
+
+  <script src="lib/cartong/CartONG.ArcgisService.js"></script>
   
   <script src="config/Config.js"></script>
   <script src="js/Dom.js"></script>

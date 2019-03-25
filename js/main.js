@@ -5,30 +5,81 @@ $(document).ready(function() {
   
   // init objects
   var dom = app.Dom,
-      view = app.View(dom),
-      map = new app.Map(dom.map, Config.map),
-      caves = new app.Data(Config.datasources[0])
+      view = app.View(dom)
+      //map = new app.Map(dom.map) //, Config.map),
+      //data = new app.Data(Config.datasources[0])
+      
+ 
+  // actions
+  view.onServiceURLKeypress(appFunction)
+  view.onServiceURLClick(appFunction)
 
-  // carga datos
-  caves.read()
-    .done(function(data) { map.addData(data, {
-      show: true
-    }) })
-    .fail(view.onDataError())
-  /*
-  api.characters().then(view.addPersonajes);
-  */
+  function appFunction(input) {
 
-  /*
-  // acciones
-  view.onBuscar(function (ids) {
-    $.when(
-      api.comics(ids[0]),
-      api.comics(ids[1])
-    )
-    .then(Comics.interseccion)
-    .then(view.addComics);
-  });
-  */
+
+    var service = new CartONG.ArcgisService(input.url)
+    var params = {
+      returnGeometry: input.returnGeometry,
+      f: input.outFormat == 'geojson' ? 'geojson' : 'json'
+    }
+    
+    // TODO: time check?
+
+    $.when(service.definitionPromise)
+      .done(function() {
+        //service.getAllData()
+        service.getData(params)
+          .done(function(data) {
+
+            //data = new Data(data)
+            var print
+            var featureArray
+
+            //download file instead of printing, specially for big files!
+            if (input.outFormat == 'csv') {
+              //adapt features to csv array
+              featureArray = service.features2csv(data, 'json', input.returnGeometry)
+              
+              //transform to papaparse
+              print = Papa.unparse(featureArray)
+            }
+            else {
+              print = JSON.stringify(data, undefined, 2)
+            }
+
+            //console.log(print)
+            view.showResult({
+              success: true,
+              features: print,
+              featuresLength: data.features.length,
+              format: input.outFormat
+            })
+
+            view.onExportClick(function(exportFormat) {
+              //console.log(exportFormat)
+              var exportData;
+              if (exportFormat === 'csv') {
+                if (!featureArray) {
+                  featureArray = service.features2csv(data, input.outFormat)
+                }
+                exportData = Papa.unparse(featureArray)
+              }
+              else { exportData = data}
+
+              service.export(exportData, exportFormat)
+            })
+
+          })
+          .fail(function(res) {
+            //view.showResult(JSON.stringify(err, undefined, 2))
+            debugger
+            view.showResult({ success: false, message: res.message || res.error.message })
+          })
+      })
+      .fail(function(res) {
+        view.showResult({ success: false, message: res.error.message })
+      });
+
+  }
 
 });

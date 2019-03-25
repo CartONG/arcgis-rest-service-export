@@ -1,10 +1,14 @@
 :root {
+  --main-color: #2f4f4f;
   --main-bg-color: #0092be;
 }
 
 body {
   font-family: 'lato', sans-serif;
+  color: var(--main-color, #2f4f4f)
 }
+
+#map { height: 200px; }
 
 .app-header {
   padding-top: 50px;
@@ -12,21 +16,35 @@ body {
   border-bottom: 1px solid;
 }
 
-.app-content .row {
+.app-content>.row {
   margin-bottom: 20px;
 }
 
-.app-content .flow-step {
+.app-content .flow-step-explanation {
+  font-size: smaller;
+}
+
+.app-content .flow-step-number {
   margin-right: 20px;
   font-weight: bold;
   /*background-color: var(--main-bg-color, lightgrey);*/
   /*padding: 0.5rem 0.9rem;*/
 }
 
-#map { height: 200px; }
+.app-content .badge {
+  font-size: initial;
+  font-weight: initial;
+}
+.app-warning {
+  font-size: small;
+  color: grey;
+}
 
-#txt-result {
-  width: 100%;
-  height: 200px;
-  background-color: antiquewhite;
+/*
+.app-content .float-right {
+  float: right;
+}
+*/
+.app-header .text-small {
+  font-size: small;
 }
