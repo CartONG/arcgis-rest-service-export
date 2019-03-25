@@ -35,6 +35,7 @@ window.app.View = function(dom) {
       $dom.btnExportData.attr('disabled', true)
       $dom.dropdownExportOptions.html('')
       $dom.txtResultSummary.html('');
+      $dom.txtResult.html('')
     }
 
     function onDataError(err) {
