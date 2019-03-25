@@ -32,11 +32,7 @@
     
     <div class="app-header">
       <div class="col-md-12">
-        <h1>ArcGIS REST Service export
-          <span class='float-right text-small'>
-            Developed by <img src="img/cartong_logo.png" height='30' alt='CartONG'>
-          </span>
-        </h1>
+        <h1>ArcGIS REST Service export</h1>
       </div>
     </div>
 
@@ -50,7 +46,7 @@
               <div class="form-group">
                 <label for="input-service-url">
                   <!--span class="flow-step-number">1</span-->
-                  Service layer
+                  Service layer<!--i class="fas fa-question-circle"></i-->
                   <span class="flow-step-explanation">| e.g.: https://gis.unhcr.org/arcgis/rest/services/core/core_prod/MapServer/6</span>
                 </label>
                 <div class="input-group input-group-sm mb-3">
@@ -99,34 +95,53 @@
 
         </div>
         <div class="col-md-6 container-map">
-          <div id="map"></div>
+          <!--div id="map"></div-->
         </div>
       </div>
       
       <div class="row">
         <div class="col-md-12 container-results">
-            
+          
           <div class="form-group">
             <label for="txt-result">Print results</label>
             <span id="txt-result-summary" class="float-right"></span>
             <textarea class="form-control form-control-sm" id="txt-result" rows="8" readonly></textarea>
           </div>
-
+          
           <div class="btn-group float-right">
             <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="btn-export-data" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
               Export
             </button>
             <div class="dropdown-menu dropdown-menu-right" id="dropdown-export-options" aria-labelledby="btn-export-data" disabled></div>
           </div>
-
-
+          
+          
         </div>
       </div>
 
-    </div>
       
+    </div>
+    
+    <footer>
+      <div class="container-disclaimer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9">
+              <p>This is a beta version and there are still some bug testing to do. Please help reporting any issue you find.</p>
+            </div>
+            <div class="col-md-3">
+              <span class='float-right'>
+                Developed by <img src="img/cartong_logo.png" height='30' alt='CartONG'>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
   </div>
-  
+  <!-- Container -->
+
 
   <!-- scripts -->
   <script src="lib/jquery/jquery-3.3.1.min.js"></script>

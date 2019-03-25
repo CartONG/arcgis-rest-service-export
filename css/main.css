@@ -16,10 +16,17 @@ body {
   border-bottom: 1px solid;
 }
 
+.app-content {
+  margin-bottom: 140px;
+}
+
 .app-content>.row {
   margin-bottom: 20px;
 }
 
+.app-content label i {
+  margin: 0 5px 0 10px;
+}
 .app-content .flow-step-explanation {
   font-size: smaller;
 }
@@ -40,11 +47,16 @@ body {
   color: grey;
 }
 
-/*
-.app-content .float-right {
-  float: right;
+footer .container-disclaimer img {
+  margin-left: 20px;
 }
-*/
-.app-header .text-small {
+footer .container-disclaimer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 0 20px;
+  color: white;
+  background-color: var(--main-bg-color);
   font-size: small;
 }

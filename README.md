@@ -5,7 +5,10 @@ ArcGIS REST services often come with a limitation of 1000 features on their resp
 
 This tool tries to avoid this limitation for data consumers.
 
+The code is built in a way that allows extracting cartong/CartONG.ArcgisService.js for independent use in other applications.
+
 ## Thanks to
 * jQuery
-* Bootstrap
+* Bootstrap (and Popper)
 * PapaParse
+* Fontawesome
