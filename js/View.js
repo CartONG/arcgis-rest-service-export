@@ -86,7 +86,7 @@ window.app.View = function(dom) {
             message: 'Success! | Number of features: ' + res.featuresLength,
             class: 'info'
           }))
-          if (res.featuresLength > 1000) {
+          if (res.featuresLength > 5000) {
             print = 'Too big dataset to print, please download the file with Export button.'
           }
           else {
