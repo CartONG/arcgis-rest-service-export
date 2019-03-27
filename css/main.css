@@ -1,6 +1,6 @@
 :root {
   --main-color: #2f4f4f;
-  --main-bg-color: #0092be;
+  --main-bg-color: #41b3b6;
 }
 
 body {
@@ -12,8 +12,8 @@ body {
 
 .app-header {
   padding-top: 50px;
-  margin-bottom: 50px;
-  border-bottom: 1px solid;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--main-bg-color, #41b3b6);
 }
 
 .app-content {
@@ -22,6 +22,16 @@ body {
 
 .app-content>.row {
   margin-bottom: 20px;
+}
+
+.app-content .container-introduction {
+  font-size: small;
+}
+
+.app-content .container-introduction .alert {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border-color: #d4d4d4;
 }
 
 .app-content label i {
@@ -42,6 +52,12 @@ body {
   font-size: initial;
   font-weight: initial;
 }
+
+.badge-cartong {
+  color: #fff;
+  background-color: var(--main-bg-color, #41b3b6);
+}
+
 .app-warning {
   font-size: small;
   color: grey;
@@ -57,6 +73,6 @@ footer .container-disclaimer {
   right: 0;
   padding: 15px 0 20px;
   color: white;
-  background-color: var(--main-bg-color);
+  background-color: var(--main-bg-color, #41b3b6);
   font-size: small;
 }

@@ -25,12 +25,19 @@ $(document).ready(function() {
     
     // TODO: time check?
 
-    $.when(service.definitionPromise)
-      .done(function() {
-        //service.getAllData()
+    $.when(service.loadDefinition())
+      .done(function(serviceDefinition) {
+        console.log(serviceDefinition)
+        var serviceMeta = {
+          version: serviceDefinition.currentVersion,
+          type: serviceDefinition.type,
+          capabilities: serviceDefinition.capabilities,
+          supportedQueryFormats: serviceDefinition.supportedQueryFormats,
+          maxRecordCount: serviceDefinition.maxRecordCount
+        }
         service.getData(params)
           .done(function(data) {
-
+            console.log('Success!')
             //data = new Data(data)
             var print
             var featureArray
@@ -72,12 +79,14 @@ $(document).ready(function() {
           })
           .fail(function(res) {
             //view.showResult(JSON.stringify(err, undefined, 2))
-            debugger
-            view.showResult({ success: false, message: res.message || res.error.message })
+            var metaText = ' Service description:\n' + (JSON.stringify(serviceMeta, undefined, 2))
+            console.log('Error!')
+            view.showResult({ success: false, message: (res.message || res.error.message) + metaText })
           })
       })
       .fail(function(res) {
-        view.showResult({ success: false, message: res.error.message })
+        console.log('Error!')
+        view.showResult({ success: false, message: res.error.message + ' Error onsService definition request.' })
       });
 
   }

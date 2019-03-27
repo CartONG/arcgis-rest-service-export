@@ -84,9 +84,9 @@ window.app.View = function(dom) {
         if (res.featuresLength) {
           $dom.txtResultSummary.html(setParams(component.badge, {
             message: 'Success! | Number of features: ' + res.featuresLength,
-            class: 'info'
+            class: 'cartong'
           }))
-          if (res.featuresLength > 5000) {
+          if (res.featuresLength > 15000) {
             print = 'Too big dataset to print, please download the file with Export button.'
           }
           else {
