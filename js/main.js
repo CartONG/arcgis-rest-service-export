@@ -16,7 +16,7 @@ $(document).ready(function() {
 
   function appFunction(input) {
 
-
+    input.returnGeometry = input.returnGeometry == 'true' ? true : false
     var service = new CartONG.ArcgisService(input.url)
     var params = {
       returnGeometry: input.returnGeometry,
