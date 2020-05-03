@@ -86,7 +86,7 @@ $(document).ready(function() {
       })
       .fail(function(res) {
         console.log('Error!')
-        view.showResult({ success: false, message: res.error.message + ' Error onsService definition request.' })
+        view.showResult({ success: false, message: res.error.message + ' Error on Service definition request.' })
       });
 
   }
